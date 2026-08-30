@@ -51,7 +51,7 @@ export function EntryCard({ section, entry }: { section: SectionKey; entry: Entr
         <p className="mt-2 text-pretty text-sm text-muted">{entry.summary}</p>
         <Link
           to={`/${section}/$slug` as never}
-          params={{ slug: entry.slug }}
+          params={{ slug: entry.slug } as never}
           className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-chrome transition-all group-hover:gap-3"
         >
           Read →<span className="sr-only">{entry.title}</span>
@@ -68,7 +68,7 @@ export function TextCard({ section, entry }: { section: SectionKey; entry: Entry
         {formatDate(entry.date)}
       </span>
       <h3 className="mt-3 text-pretty text-lg font-semibold leading-snug">
-        <Link to={`/${section}/$slug` as never} params={{ slug: entry.slug }} className="transition-colors hover:text-chrome">
+        <Link to={`/${section}/$slug` as never} params={{ slug: entry.slug } as never} className="transition-colors hover:text-chrome">
           {entry.title}
         </Link>
       </h3>
@@ -83,7 +83,7 @@ export function ListRow({ index, section, entry }: { index: number; section: Sec
       <span className="w-8 font-mono text-xs text-neon">{String(index + 1).padStart(2, "0")}</span>
       <div className="flex-1">
         <h3 className="text-pretty font-semibold">
-          <Link to={`/${section}/$slug` as never} params={{ slug: entry.slug }} className="transition-colors hover:text-chrome">
+          <Link to={`/${section}/$slug` as never} params={{ slug: entry.slug } as never} className="transition-colors hover:text-chrome">
             {entry.title}
           </Link>
         </h3>
