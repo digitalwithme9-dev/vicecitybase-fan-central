@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as CharactersIndexRouteImport } from './routes/characters.index'
+import { Route as CharactersSlugRouteImport } from './routes/characters.$slug'
+import { Route as FeaturesIndexRouteImport } from './routes/features.index'
+import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
+import { Route as GuidesIndexRouteImport } from './routes/guides.index'
+import { Route as GuidesSlugRouteImport } from './routes/guides.$slug'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharactersIndexRoute = CharactersIndexRouteImport.update({
+  id: '/characters/',
+  path: '/characters/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharactersSlugRoute = CharactersSlugRouteImport.update({
+  id: '/characters/$slug',
+  path: '/characters/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesIndexRoute = FeaturesIndexRouteImport.update({
+  id: '/features/',
+  path: '/features/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesSlugRoute = FeaturesSlugRouteImport.update({
+  id: '/features/$slug',
+  path: '/features/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesIndexRoute = GuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesSlugRoute = GuidesSlugRouteImport.update({
+  id: '/guides/$slug',
+  path: '/guides/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/characters/$slug': typeof CharactersSlugRoute
+  '/features/$slug': typeof FeaturesSlugRoute
+  '/guides/$slug': typeof GuidesSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/characters/': typeof CharactersIndexRoute
+  '/features/': typeof FeaturesIndexRoute
+  '/guides/': typeof GuidesIndexRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/characters/$slug': typeof CharactersSlugRoute
+  '/features/$slug': typeof FeaturesSlugRoute
+  '/guides/$slug': typeof GuidesSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/characters': typeof CharactersIndexRoute
+  '/features': typeof FeaturesIndexRoute
+  '/guides': typeof GuidesIndexRoute
+  '/news': typeof NewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/characters/$slug': typeof CharactersSlugRoute
+  '/features/$slug': typeof FeaturesSlugRoute
+  '/guides/$slug': typeof GuidesSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/characters/': typeof CharactersIndexRoute
+  '/features/': typeof FeaturesIndexRoute
+  '/guides/': typeof GuidesIndexRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/sitemap.xml'
+    | '/characters/$slug'
+    | '/features/$slug'
+    | '/guides/$slug'
+    | '/news/$slug'
+    | '/characters/'
+    | '/features/'
+    | '/guides/'
+    | '/news/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/sitemap.xml'
+    | '/characters/$slug'
+    | '/features/$slug'
+    | '/guides/$slug'
+    | '/news/$slug'
+    | '/characters'
+    | '/features'
+    | '/guides'
+    | '/news'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/sitemap.xml'
+    | '/characters/$slug'
+    | '/features/$slug'
+    | '/guides/$slug'
+    | '/news/$slug'
+    | '/characters/'
+    | '/features/'
+    | '/guides/'
+    | '/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  CharactersSlugRoute: typeof CharactersSlugRoute
+  FeaturesSlugRoute: typeof FeaturesSlugRoute
+  GuidesSlugRoute: typeof GuidesSlugRoute
+  NewsSlugRoute: typeof NewsSlugRoute
+  CharactersIndexRoute: typeof CharactersIndexRoute
+  FeaturesIndexRoute: typeof FeaturesIndexRoute
+  GuidesIndexRoute: typeof GuidesIndexRoute
+  NewsIndexRoute: typeof NewsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/characters/': {
+      id: '/characters/'
+      path: '/characters'
+      fullPath: '/characters/'
+      preLoaderRoute: typeof CharactersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/characters/$slug': {
+      id: '/characters/$slug'
+      path: '/characters/$slug'
+      fullPath: '/characters/$slug'
+      preLoaderRoute: typeof CharactersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/': {
+      id: '/features/'
+      path: '/features'
+      fullPath: '/features/'
+      preLoaderRoute: typeof FeaturesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features/$slug': {
+      id: '/features/$slug'
+      path: '/features/$slug'
+      fullPath: '/features/$slug'
+      preLoaderRoute: typeof FeaturesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/': {
+      id: '/guides/'
+      path: '/guides'
+      fullPath: '/guides/'
+      preLoaderRoute: typeof GuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/$slug': {
+      id: '/guides/$slug'
+      path: '/guides/$slug'
+      fullPath: '/guides/$slug'
+      preLoaderRoute: typeof GuidesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  CharactersSlugRoute: CharactersSlugRoute,
+  FeaturesSlugRoute: FeaturesSlugRoute,
+  GuidesSlugRoute: GuidesSlugRoute,
+  NewsSlugRoute: NewsSlugRoute,
+  CharactersIndexRoute: CharactersIndexRoute,
+  FeaturesIndexRoute: FeaturesIndexRoute,
+  GuidesIndexRoute: GuidesIndexRoute,
+  NewsIndexRoute: NewsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
