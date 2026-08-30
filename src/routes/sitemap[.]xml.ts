@@ -3,7 +3,7 @@ import { allEntryPaths } from "@/data/content";
 
 const staticPaths = ["/", "/characters", "/features", "/news", "/guides", "/about"];
 
-export const Route = createFileRoute("/sitemap/xml")({
+export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: ({ request }) => {
