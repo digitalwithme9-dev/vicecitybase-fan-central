@@ -20,7 +20,7 @@ export function SectionHeading({
       </div>
       {action && (
         <Link
-          to={action.to}
+          to={action.to as never}
           className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted transition-colors hover:text-chrome"
         >
           {action.label} →
@@ -50,7 +50,7 @@ export function EntryCard({ section, entry }: { section: SectionKey; entry: Entr
         </div>
         <p className="mt-2 text-pretty text-sm text-muted">{entry.summary}</p>
         <Link
-          to={`/${section}/$slug`}
+          to={`/${section}/$slug` as never}
           params={{ slug: entry.slug }}
           className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-chrome transition-all group-hover:gap-3"
         >
@@ -68,7 +68,7 @@ export function TextCard({ section, entry }: { section: SectionKey; entry: Entry
         {formatDate(entry.date)}
       </span>
       <h3 className="mt-3 text-pretty text-lg font-semibold leading-snug">
-        <Link to={`/${section}/$slug`} params={{ slug: entry.slug }} className="transition-colors hover:text-chrome">
+        <Link to={`/${section}/$slug` as never} params={{ slug: entry.slug }} className="transition-colors hover:text-chrome">
           {entry.title}
         </Link>
       </h3>
@@ -83,7 +83,7 @@ export function ListRow({ index, section, entry }: { index: number; section: Sec
       <span className="w-8 font-mono text-xs text-neon">{String(index + 1).padStart(2, "0")}</span>
       <div className="flex-1">
         <h3 className="text-pretty font-semibold">
-          <Link to={`/${section}/$slug`} params={{ slug: entry.slug }} className="transition-colors hover:text-chrome">
+          <Link to={`/${section}/$slug` as never} params={{ slug: entry.slug }} className="transition-colors hover:text-chrome">
             {entry.title}
           </Link>
         </h3>
@@ -142,7 +142,7 @@ export function EntryPage({ section, entry }: { section: SectionKey; entry: Entr
     <div className="mx-auto grid max-w-[1440px] grid-cols-12 gap-8 px-5 py-14 sm:px-8">
       <main className="col-span-12 lg:col-span-8">
         <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-chrome">
-          <Link to={`/${section}`} className="transition-colors hover:text-ink">
+          <Link to={`/${section}` as never} className="transition-colors hover:text-ink">
             {section}
           </Link>
           <span className="px-2 text-muted">/</span>
@@ -191,7 +191,7 @@ export function EntryPage({ section, entry }: { section: SectionKey; entry: Entr
             <ul className="mt-4 divide-y divide-line">
               {related.map((r) => (
                 <li key={r.href} className="py-3">
-                  <Link to={r.href} className="text-pretty font-semibold transition-colors hover:text-chrome">
+                  <Link to={r.href as never} className="text-pretty font-semibold transition-colors hover:text-chrome">
                     {r.entry.title}
                   </Link>
                   <p className="text-sm text-muted">{r.entry.summary}</p>

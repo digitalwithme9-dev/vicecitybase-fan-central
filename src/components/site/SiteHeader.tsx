@@ -24,7 +24,7 @@ export function SiteHeader() {
           {nav.map((item) => (
             <Link
               key={item.to}
-              to={item.to}
+              to={item.to as never}
               activeOptions={{ exact: item.to === "/" }}
               activeProps={{ className: "px-3 py-2 text-ink bg-neon/10 ring-1 ring-neon/40" }}
               inactiveProps={{ className: "px-3 py-2 hover:text-ink transition-colors" }}
@@ -51,7 +51,7 @@ export function SiteHeader() {
             {nav.map((item) => (
               <li key={item.to}>
                 <Link
-                  to={item.to}
+                  to={item.to as never}
                   onClick={() => setOpen(false)}
                   className="block py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-muted"
                   activeOptions={{ exact: item.to === "/" }}
